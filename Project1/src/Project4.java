@@ -1,41 +1,47 @@
-import java.util.*;
 public class Project4 {
 
 	public static void main (String[] args){
-		double i = 1, totalAmount = 0, weight = 0, cost = 0;
-		char dest = 'a';
+		double i = 1, totalAmount = 0, weight, cost = 0;
+		char dest;
 		int numOfIParcels = 0, numOfDParcels = 0, rejectedParcels = 0;
+		boolean check;
 		method.introductionMessage();
 		while (i != 0)
 		{
 			weight = method.getParcelWeight();
 			i = weight;
-			if (i > 0)
+			if (i != 0)
 			{
-		Scanner sc2 = new Scanner(System.in);
-		method.getParcelDestination();
-		dest = sc2.next().charAt(0);
-		method.validParcelDestination(dest, weight);
-		if (dest == 'D' || dest == 'd')
+		dest = method.getParcelDestination();
+		check = method.validParcelDestination(dest, weight);
+		if (check == false)
 		{
-			cost = method.computeDomesticCost(weight);
-			numOfDParcels++;
-			if (weight <= 0)
+			if (dest == 'D' || dest == 'd')
+			{
+				cost = method.computeDomesticCost(weight);
+				numOfDParcels++;
+			}
+			else if (dest == 'I' || dest == 'i')
+			{
+				cost = method.computeInternationalCost(weight);
+				numOfIParcels++;
+			}
+		}
+		else if (check == true)
+		{
+			rejectedParcels++;
+			if (dest == 'D' || dest == 'd')
 			{
 				numOfDParcels--;
 			}
-		}
-		else if (dest == 'I' || dest == 'i')
-		{
-			cost = method.computeInternationalCost(weight);
-			numOfIParcels++;
-			if (weight <= 0)
+			else if (dest == 'I' || dest == 'i')
 			{
 				numOfIParcels--;
 			}
 		}totalAmount = totalAmount + cost;
+		
 		}
-		method.displayFinalOutput(numOfIParcels, numOfDParcels, rejectedParcels, totalAmount);
-	}
+	}method.displayFinalOutput(numOfIParcels, numOfDParcels, rejectedParcels, totalAmount);
+		
 }
 }

@@ -1,90 +1,102 @@
 import java.util.Scanner;
 public class method {
-	public static int numOfDParcels = 0, numOfIParcels = 0, rejected = 0, i = 1;
-	public static double weight, totalAmount = 0, grams = 0, cost = 0;
+	public static int numOfDParcels, numOfIParcels;
+	public static double weight, totalAmount, grams;
+	public static char dest;
 	public static boolean check;
 	static Scanner sc1 = new Scanner(System.in);
+	static Scanner sc2 = new Scanner(System.in);
 public static void introductionMessage () {
 	System.out.println("Welcome");
 	System.out.println("With this program, you can calculate the total cost of posting numbers of parcels");
 }
 public static double getParcelWeight () {
-	System.out.print("Enter the parcel weight in kg : ");
+	System.out.print("\nEnter the parcel weight in kg : ");
 	weight = sc1.nextDouble();
 	while (weight < 0)
 	{
 		System.out.print("You must enter non-negative number");
-		System.out.print("Enter the parcel weight in kg : ");
+		System.out.print("\nEnter the parcel weight in kg : ");
 		weight = sc1.nextDouble();
 	}
 	return weight;
 }
 public static char getParcelDestination () {
-	char dest = 'a';
-	System.out.print("Enter destination : <D>omestic or <I>nternational?");
+	System.out.print("\nEnter destination : <D>omestic or <I>nternational?");
+	dest = sc2.next().charAt(0);
+	if (dest != 'D' && dest != 'd' && dest != 'i' && dest != 'I')
+	{
+		System.out.print("You must enter 'd', 'D', 'i', 'I' only");
+		System.out.print("\nEnter destination : <D>omestic or <I>nternational?");
+		dest = sc2.next().charAt(0);
+	}
 	return dest;
 }
 public static boolean validParcelDestination (char dest, double weight) {
-	if (dest != 'D' && dest != 'd' && dest != 'I' && dest != 'i')
+	if (dest == 'I' || dest == 'i' &&  weight > 20 )
 	{
-		check = true;
+		System.out.print("\nSorry, you can't send parcels weighing more than 20 kg oversea");
+		check = false;
 	}
-	if (weight > 20 && dest == 'I' || dest == 'i')
+	else if (dest == 'D' || dest == 'd' && weight > 30)
 	{
-		check = true;
+		System.out.print("\nSorry, you can't send parcels weighing more than 30 kg within Malaysia");
+		check = false;
+		
 	}
-	else if (weight > 30 && dest == 'D' || dest == 'd')
+	else
 	{
-		 check = true;
+	check = true;
 	}
 	return check;
 }
 public static double computeDomesticCost (double weight) {
-	if (weight > 0 && weight <1)
-	{cost = 5.50;
-   		System.out.print("For a parcel weight of " + weight);
-   	 	System.out.println("kg, the cost is RM" + cost);
+   	if (weight == 0) 
+   	{
+   		totalAmount = 0;
+   		numOfDParcels--;
+   	}
+   	else if (weight > 0 && weight <1)
+	{totalAmount = 5.50;
+   		System.out.print("\nFor a parcel weight of " + weight);
+   	 	System.out.println("kg, the cost is RM" + totalAmount);
 	}
 	else if (weight >=1 && weight<5) 
    	{
-   		cost = weight * 6.50;
-   		System.out.print("For a parcel weight of " + weight);
-   	 	System.out.println("kg, the cost is RM" + cost);
+   		totalAmount = weight * 6.50;
+   		System.out.print("\nFor a parcel weight of " + weight);
+   	 	System.out.println("kg, the cost is RM" + totalAmount);
    	}
-   	else if (weight >=5) 
+   	else if (weight >=5 && weight <= 30) 
    	{
-   		cost = weight * 8.00;
-   		System.out.print("For a parcel weight of " + weight);
-   	 	System.out.println("kg, the cost is RM" + cost);
+   		totalAmount = weight * 8.00;
+   		System.out.print("\nFor a parcel weight of " + weight);
+   	 	System.out.println("kg, the cost is RM" + totalAmount);
    	}
-   	else if (weight == 0) 
-   	{
-   		cost = cost * 0;
-   
-   	}
-	return cost;
+	return totalAmount;
 }
 public static double computeInternationalCost (double weight) {
 	 grams = weight * 1000;
-	 if (grams <=250)
-	 {cost = 41.20;
-		 System.out.print("For a parcel weight of " + weight);
-       	 System.out.println("kg, the cost is RM" + cost);
-	 }
-	 else if (grams > 250 && weight <= 20)
+	 if (grams == 0 && weight > 20)
 	 {
-		 cost =(Math.ceil((grams - 250)/250)*5.20) + 41.20;
-		 System.out.print("For a parcel weight of " + weight);
-       	 System.out.println("kg, the cost is RM" + cost);
+		 numOfIParcels--;
+		 totalAmount = 0;
 	 }
-	 else if (grams == 0)
-	 {numOfIParcels--;
-		 cost = 0;
+	 else if (grams <=250)
+	 {totalAmount = 41.20;
+		 System.out.print("\nFor a parcel weight of " + weight);
+       	 System.out.println("kg, the cost is RM" + totalAmount);
 	 }
-	 return cost;
+	 else if (grams > 250)
+	 {
+		 totalAmount =(Math.ceil((grams - 250)/250)*5.20) + 41.20;
+		 System.out.print("\nFor a parcel weight of " + weight);
+       	 System.out.println("kg, the cost is RM" + totalAmount);
+	 }
+	 return totalAmount;
  }
 public static void displayFinalOutput (int numOfIParcels, int numOfDParcels, int rejectedParcels, double totalAmount) {
-	if (numOfDParcels == 0 && numOfIParcels == 0 && i == 0)
+	if (numOfDParcels == 0 && numOfIParcels == 0)
 	{
 		System.out.print("Number of rejected parcels is " + rejectedParcels);
 		System.out.print("\n No parcels to send today!");
@@ -93,8 +105,8 @@ public static void displayFinalOutput (int numOfIParcels, int numOfDParcels, int
 System.out.println("Number of rejected parcels is " + rejectedParcels);
 System.out.println("Number of Domestic parcels is " + numOfDParcels);
 System.out.println("Number of International parcels is " + numOfIParcels);
-System.out.println("Number of total parcels is" + (numOfDParcels+numOfIParcels));
-System.out.println("With total amount of " + totalAmount);
+System.out.println("Number of total parcels is " + (numOfDParcels+numOfIParcels));
+System.out.println("With total amount of RM" + totalAmount);
 }
 }
 }

@@ -14,7 +14,7 @@ public class Project4 {
 			{
 		dest = method.getParcelDestination();
 		check = method.validParcelDestination(dest, weight);
-		if (check == false)
+		if (check == true)
 		{
 			if (dest == 'D' || dest == 'd')
 			{
@@ -25,21 +25,12 @@ public class Project4 {
 			{
 				cost = method.computeInternationalCost(weight);
 				numOfIParcels++;
-			}
+			}totalAmount = totalAmount + cost;
 		}
-		else if (check == true)
+		else if (check == false)
 		{
 			rejectedParcels++;
-			if (dest == 'D' || dest == 'd')
-			{
-				numOfDParcels--;
-			}
-			else if (dest == 'I' || dest == 'i')
-			{
-				numOfIParcels--;
-			}
-		}totalAmount = totalAmount + cost;
-		
+		}
 		}
 	}method.displayFinalOutput(numOfIParcels, numOfDParcels, rejectedParcels, totalAmount);
 		

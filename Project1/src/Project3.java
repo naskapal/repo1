@@ -47,7 +47,6 @@ public class Project3 {
 			 dest = sc2.next().charAt(0);
 			 while (dest != 'd' && dest != 'D' && dest != 'i' && dest != 'I')
 			 {
-				 rp++;
 				 System.out.println("Please enter 'D', 'd', 'I', or 'i' only");
 				 System.out.print("Domestic or International?");
 				 dest = sc2.next().charAt(0);

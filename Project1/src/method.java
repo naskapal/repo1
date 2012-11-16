@@ -24,7 +24,7 @@ public static double getParcelWeight () {
 public static char getParcelDestination () {
 	System.out.print("\nEnter destination : <D>omestic or <I>nternational?");
 	dest = sc2.next().charAt(0);
-	if (dest != 'D' && dest != 'd' && dest != 'i' && dest != 'I')
+	while (dest != 'D' && dest != 'd' && dest != 'i' && dest != 'I')
 	{
 		System.out.print("You must enter 'd', 'D', 'i', 'I' only");
 		System.out.print("\nEnter destination : <D>omestic or <I>nternational?");
@@ -57,22 +57,20 @@ public static double computeDomesticCost (double weight) {
    		numOfDParcels--;
    	}
    	else if (weight > 0 && weight <1)
-	{totalAmount = 5.50;
-   		System.out.print("\nFor a parcel weight of " + weight);
-   	 	System.out.println("kg, the cost is RM" + totalAmount);
+	{
+   		totalAmount = 5.50;
 	}
 	else if (weight >=1 && weight<5) 
    	{
    		totalAmount = weight * 6.50;
-   		System.out.print("\nFor a parcel weight of " + weight);
-   	 	System.out.println("kg, the cost is RM" + totalAmount);
    	}
    	else if (weight >=5 && weight <= 30) 
    	{
    		totalAmount = weight * 8.00;
-   		System.out.print("\nFor a parcel weight of " + weight);
-   	 	System.out.println("kg, the cost is RM" + totalAmount);
+   		
    	}
+   	System.out.print("\nFor a parcel weight of " + weight);
+	System.out.println("kg, the cost is RM" + totalAmount);
 	return totalAmount;
 }
 public static double computeInternationalCost (double weight) {
@@ -83,16 +81,15 @@ public static double computeInternationalCost (double weight) {
 		 totalAmount = 0;
 	 }
 	 else if (grams <=250)
-	 {totalAmount = 41.20;
-		 System.out.print("\nFor a parcel weight of " + weight);
-       	 System.out.println("kg, the cost is RM" + totalAmount);
+	 {
+		 totalAmount = 41.20;
 	 }
 	 else if (grams > 250)
 	 {
 		 totalAmount =(Math.ceil((grams - 250)/250)*5.20) + 41.20;
-		 System.out.print("\nFor a parcel weight of " + weight);
-       	 System.out.println("kg, the cost is RM" + totalAmount);
-	 }
+		 
+	 }System.out.print("\nFor a parcel weight of " + weight);
+   	 System.out.println("kg, the cost is RM" + totalAmount);
 	 return totalAmount;
  }
 public static void displayFinalOutput (int numOfIParcels, int numOfDParcels, int rejectedParcels, double totalAmount) {

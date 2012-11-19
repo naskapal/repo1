@@ -1,16 +1,16 @@
 import java.util.Scanner;	//common java class that used to read input from keyboard
 public class Project1 {
     
-    private static Scanner sc1; //used to prevent resource leak
+    private static Scanner sc1 = new Scanner(System.in); //create a private scanner named "sc1"
 
 	public static void main(String[] args) {
-    	double i = 1;
+    	double i = 1; //"i" stands for initiator
     	int c = 0; //c is used for counting the number of parcels inputed c stands for "counter"
     	double cost = 0;
     	double tcost = 0;
        while (i>0)
        {c++;
-       {sc1 = new Scanner(System.in);
+       {
        	System.out.print("Enter parcel weight in kg :	");
        	double weight = sc1.nextDouble();
        	i = weight; //syntax used for preventing unlimited loops

@@ -33,12 +33,12 @@ public static char getParcelDestination () {
 	return dest;
 }
 public static boolean validParcelDestination (char dest, double weight) {
-	if (dest == 'I' || dest == 'i' &&  weight > 20 )
+	if ((dest == 'I' || dest == 'i') &&  weight > 20 )
 	{
 		System.out.print("\nSorry, you can't send parcels weighing more than 20 kg oversea");
 		check = false;
 	}
-	else if (dest == 'D' || dest == 'd' && weight > 30)
+	else if ((dest == 'D' || dest == 'd') && weight > 30)
 	{
 		System.out.print("\nSorry, you can't send parcels weighing more than 30 kg within Malaysia");
 		check = false;

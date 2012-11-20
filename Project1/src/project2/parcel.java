@@ -1,26 +1,25 @@
 package project2;
 
 public class parcel {
-private double weight;
+private double weight, cost;
 private char destination;
-private double cost;
 
-public parcel (double inWeight, char inDest) {
-	if (weight > 0)
-	{
-		weight = inWeight;
-	}
-	else if (weight <0)
+public parcel (double a, char b) {
+	if (weight <0)
 	{
 		System.out.println("You must enter non-negative value");
 	}
-	if (destination == 'D' || destination == 'd' || destination == 'I' || destination == 'i')
+	else
 	{
-		destination = inDest;
+		weight = a;
+	}
+	if ((destination != 'D' || destination != 'd') || (destination != 'I' || destination != 'i'))
+	{
+		System.out.println("You must enter 'D', 'd', 'I', or 'i' only");
 	}
 	else
 	{
-		System.out.println("You must enter 'D', 'd', 'I', or 'i' only");
+		destination = b;
 	}
 }
 public double getParcelWeight () {
@@ -78,12 +77,12 @@ public static boolean validateParcelWeight (double weight, char destination) {
 	boolean check;
 	if ((destination == 'I' || destination == 'i') &&  weight > 20 )
 	{
-		System.out.print("\nSorry, you can't send parcels weighing more than 20 kg oversea");
+		System.out.println("Sorry, you can't send parcels weighing more than 20 kg oversea");
 		check = false;
 	}
 	else if ((destination == 'D' || destination == 'd') && weight > 30)
 	{
-		System.out.print("\nSorry, you can't send parcels weighing more than 30 kg within Malaysia");
+		System.out.println("Sorry, you can't send parcels weighing more than 30 kg within Malaysia");
 		check = false;
 		
 	}
@@ -97,12 +96,12 @@ public String toString () {
 	String dest;
 	if (destination == 'D' || destination == 'd')
 	{
-		dest = "a domestic";
+		dest = "a domestic ";
 	}
 	else
 	{
-		dest = "an international";
+		dest = "an international ";
 	}
-		return dest + weight + "kg parcel, with cost" + cost ;
+		return dest + weight + "kg parcel, with cost " + cost ;
 }
 }

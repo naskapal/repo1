@@ -4,22 +4,26 @@ public class parcel {
 private double weight, cost;
 private char destination;
 
+public parcel () {
+	weight = 0;
+	destination = ' ';
+}
 public parcel (double a, char b) {
-	if (weight <0)
-	{
-		System.out.println("You must enter non-negative value");
-	}
-	else
+	if (weight >= 0)
 	{
 		weight = a;
 	}
-	if ((destination != 'D' || destination != 'd') || (destination != 'I' || destination != 'i'))
+	else
 	{
-		System.out.println("You must enter 'D', 'd', 'I', or 'i' only");
+		System.out.println("You must enter non-negative value");
+	}
+	if ((destination == 'D' || destination == 'd') || (destination == 'I' || destination == 'i'))
+	{
+		destination = b;
 	}
 	else
 	{
-		destination = b;
+		System.out.println("You must enter 'D', 'd', 'I', or 'i' only");
 	}
 }
 public double getParcelWeight () {

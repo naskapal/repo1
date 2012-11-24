@@ -1,30 +1,30 @@
 package project2;
 
 public class parcel {
-private double weight, cost;
-private char destination;
+private static double weight, cost;
+private static char destination;
 
-public parcel () {
-	weight = 0;
-	destination = ' ';
+public static void validator (double weight, char destination) {
+	if (weight > 0)
+	{
+		weight = weight;
+	}
+	else
+	{
+		weight = 0;
+	}
+	if (destination == 'D' || destination == 'd' || destination == 'I' || destination == 'i')
+	{
+		destination = destination;
+	}
+	else
+	{
+		destination = ' ';
+	}
 }
 public parcel (double a, char b) {
-	if (weight >= 0)
-	{
-		weight = a;
-	}
-	else
-	{
-		System.out.println("You must enter non-negative value");
-	}
-	if ((destination == 'D' || destination == 'd') || (destination == 'I' || destination == 'i'))
-	{
-		destination = b;
-	}
-	else
-	{
-		System.out.println("You must enter 'D', 'd', 'I', or 'i' only");
-	}
+	weight = a;
+	destination = b;
 }
 public double getParcelWeight () {
 	return weight;
@@ -32,13 +32,13 @@ public double getParcelWeight () {
 public char getDestination () {
 	return destination;
 }
-public void setWeight (double a) {
+public static void setWeight (double a) {
 	weight = a;
 }
-public void setDestination (char b) {
+public static void setDestination (char b) {
 	destination = b;
 }
-public double getCost () {
+public static double getCost () {
 	if (destination == 'D' || destination == 'd')
 	{
 		cost = computeDomesticCost();
@@ -49,8 +49,8 @@ public double getCost () {
 	}
 	return cost;
 }
-private double computeDomesticCost () {
-	if (weight < 1)
+private static double computeDomesticCost () {
+	if (weight < 1 && weight > 0)
 	{
 		cost = 5.50;
 	}
@@ -64,7 +64,7 @@ private double computeDomesticCost () {
 	}
 	return cost;
 }
-private double computeInternationalCost() {
+private static double computeInternationalCost() {
 	double grams;
 	grams = weight * 1000;
 	if (grams <= 250)

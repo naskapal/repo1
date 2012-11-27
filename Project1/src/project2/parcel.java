@@ -22,6 +22,10 @@ public static void validator (double weight, char destination) {
 		destination = ' ';
 	}
 }
+public parcel(){
+	weight = 0;
+	destination = ' ';
+}
 public parcel (double a, char b) {
 	weight = a;
 	destination = b;

@@ -18,19 +18,19 @@ public class Project1 {
        	{
        		cost = 5.50;
        		System.out.print("For a parcel weight of " + weight);
-       	 	System.out.println("kg, the cost is RM" + cost);
+       	 	System.out.printf("kg, the cost is RM%.2f\n" , cost);
        	}
        	else if (weight >=1 && weight<5) //if weight is more than 1(kg)and less than 5(kg)
        	{
        		cost = weight * 6.50;
        		System.out.print("For a parcel weight of " + weight);
-       	 	System.out.println("kg, the cost is RM" + cost);
+       	 	System.out.printf("kg, the cost is  RM%.2f\n" , cost);
        	}
        	else if (weight >=5) //if weight is more or exactly 5(kg)
        	{
        		cost = weight * 8.00;
        		System.out.print("For a parcel weight of " + weight);
-       	 	System.out.println("kg, the cost is RM" + cost);
+       	 	System.out.printf("kg, the cost is RM%.2f\n" , cost);
        	}
        	else if (weight == 0) //if weight inputed equals 0
        	{
@@ -48,7 +48,7 @@ public class Project1 {
 else
 {
        System.out.println("Total number of parcels is " + c);
-       System.out.println("With total amount of RM" + tcost);
+       System.out.printf("With total amount of RM%.2f\n" , tcost);
 }
 }
 }

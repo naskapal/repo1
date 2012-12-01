@@ -110,6 +110,6 @@ public String toString () {
 	{
 		dest = "an international ";
 	}
-		return dest + weight + "kg parcel, with cost " + cost ;
+		return dest + weight + "kg parcel, with cost " + cost + " " ;
 }
 }

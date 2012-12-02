@@ -23,7 +23,7 @@ System.out.println(parcel1.toString());
 }
 else
 {
-	System.out.print("");
+	System.out.print(" ");
 }
 }
 }

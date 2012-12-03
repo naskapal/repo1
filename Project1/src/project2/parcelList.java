@@ -1,7 +1,9 @@
 package project2;
+import java.util.*;
 public class parcelList {
 	parcel[] newParcel;
 	private int numOfParcels, SIZE = 10;
+	private Scanner sc1, sc2 = new Scanner(System.in);
 
 public parcelList (int a) {
 	if (a > 0)
@@ -24,11 +26,53 @@ public boolean addParcel (parcel a) {
 private int getNumOfParcels () {
 	return numOfParcels;
 }
-private String allParcels() {
-	int i = 0;
-	for(i=0;i<=10;i++)
+private void allParcels() {
+	int i;
+	for(i=0;i<=10;)
 	{
-		return i++ +"." + newParcel[numOfParcels].toString();
+		System.out.println(i++ +"." + newParcel[numOfParcels++].toString());
+	}
+}
+private double totalCost() {
+	double cost, tcost = 0;
+	int i;
+	for (i=0;i<=10;)
+	{
+		cost = newParcel[numOfParcels++].getCost();
+		tcost = tcost + cost;
+	}
+	return tcost;
+}
+private double getMaxCostParcel() {
+	double maxCost = newParcel[0].getCost();
+	for (int i=1;i<newParcel.length;i++)
+	{
+		if(newParcel[i].getCost() > maxCost)
+		{
+			maxCost = newParcel[i].getCost();
+		}
+	}
+	return maxCost;
+}
+private double getMinCostParcel() {
+	double minCost = newParcel[0].getCost();
+	for (int i=1;i<newParcel.length;i++)
+	{
+		if(newParcel[i].getCost() < minCost)
+		{
+			minCost = newParcel[i].getCost();
+		}
+	}
+	return minCost;
+}
+private String getParcelByCost(double cost1, double cost2) {
+	String getWantedParcel;
+	boolean found= false;
+	int i = 0;
+	while (!found && i < newParcel.length)
+	{
+		newParcel[i].equals(cost1);
+		newParcel[i].equals(cost2);
 	}
 }
 }

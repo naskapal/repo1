@@ -1,6 +1,7 @@
 package project2;
 
 public class parcel {
+public static final int length = 10;
 private static double weight, cost;
 private static char destination;
 
@@ -91,8 +92,7 @@ public static boolean validateParcelWeight (double weight, char destination) {
 	else if ((destination == 'D' || destination == 'd') && weight > 30)
 	{
 		System.out.println("Sorry, you can't send parcels weighing more than 30 kg within Malaysia");
-		check = false;
-		
+		check = false;	
 	}
 	else
 	{
@@ -110,6 +110,6 @@ public String toString () {
 	{
 		dest = "an international ";
 	}
-		return dest + weight + "kg parcel, with cost " + cost + " " ;
+		return dest + weight + "kg parcel, with cost " + cost;
 }
 }

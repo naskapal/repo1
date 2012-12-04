@@ -26,14 +26,14 @@ public boolean addParcel (parcel a) {
 private int getNumOfParcels () {
 	return numOfParcels;
 }
-private void allParcels() {
+public void allParcels() {
 	int i;
 	for(i=0;i<=10;)
 	{
 		System.out.println(i++ +"." + newParcel[numOfParcels++].toString());
 	}
 }
-private double totalCost() {
+public double totalCost() {
 	double cost, tcost = 0;
 	int i;
 	for (i=0;i<=10;)
@@ -43,7 +43,7 @@ private double totalCost() {
 	}
 	return tcost;
 }
-private double getMaxCostParcel() {
+public double getMaxCostParcel() {
 	double maxCost = newParcel[0].getCost();
 	for (int i=1;i<newParcel.length;i++)
 	{
@@ -54,7 +54,7 @@ private double getMaxCostParcel() {
 	}
 	return maxCost;
 }
-private double getMinCostParcel() {
+public double getMinCostParcel() {
 	double minCost = newParcel[0].getCost();
 	for (int i=1;i<newParcel.length;i++)
 	{
@@ -65,8 +65,7 @@ private double getMinCostParcel() {
 	}
 	return minCost;
 }
-private String getParcelByCost(double cost1, double cost2) {
-	String getWantedParcel;
+public void getParcelByCost(double cost1, double cost2) {
 	boolean found1= false, found2 = false;
 	int i = 0;
 	while (i < newParcel.length)
@@ -93,7 +92,51 @@ private String getParcelByCost(double cost1, double cost2) {
 	}
 	if (found1 == true && found2 == true)
 	{
-		
+		System.out.print(cost1);
+		for (i=0; i < newParcel.length;)
+		{
+			if (newParcel[i].getCost() >= cost1 && newParcel[i].getCost() <= cost2)
+			{
+				System.out.print("\n" + newParcel[i]);
+			}
+			else
+			{
+				i++;
+			}
+		}
+		System.out.print("\n" + cost2);
+	}
+	else
+	{
+		System.out.print("");
 	}
 }
+public void getParcelsByDestination (char a) {
+	boolean found = false;
+	for (int i=0; i < newParcel.length;)
+	{
+		if (a == newParcel[i].getDestination())
+		{
+			found = true;
+			System.out.print("\n" + newParcel[i]);
+		}
+		else
+		{
+			i++;
+		}
+	}
+	if (found == false)
+	{
+		System.out.print("\n");
+	}
+}
+public void sortedBy(String sort) {
+		for (int i = 0; i < newParcel.length;)
+		{
+			if (newParcel[i].equals(sort))
+			{
+				System.out.print("\n" + newParcel[i]);
+			}
+		}
+	}
 }

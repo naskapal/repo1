@@ -1,5 +1,5 @@
 package project2;
-
+import java.util.*;
 public class parcel {
 public static final int length = 10;
 private static double weight, cost;
@@ -103,15 +103,6 @@ public static boolean validateParcelWeight (double weight, char destination) {
 	return check;
 }
 public String toString () {
-	String dest;
-	if (destination == 'D' || destination == 'd')
-	{
-		dest = "a domestic ";
-	}
-	else
-	{
-		dest = "an international ";
-	}
-		return "\n" +dest + weight + "kg parcel, with cost " + cost;
+		return destination + weight + "kg parcel, with cost " + cost;
 }
 }

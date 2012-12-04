@@ -2,9 +2,8 @@ package project2;
 import java.util.*;
 public class parcelList {
 	parcel[] newParcel;
-	private int numOfParcels, SIZE = 10;
+	private static int numOfParcels, SIZE = 10;
 	private Scanner sc1, sc2 = new Scanner(System.in);
-
 public parcelList (int a) {
 	if (a > 0)
 	{
@@ -23,22 +22,23 @@ public boolean addParcel (parcel a) {
 	numOfParcels++;
 	return true;
 }
-private int getNumOfParcels () {
+public int getNumOfParcels () {
 	return numOfParcels;
 }
-public void allParcels() {
-	int i;
-	for(i=0;i<=10;)
+public String allParcels() {
+	String msg = "";
+	for(int i=1;i<=9;i++)
 	{
-		System.out.println(i++ +"." + newParcel[numOfParcels++].toString());
+		msg += newParcel[i].toString();
 	}
+	return msg;
 }
 public double totalCost() {
 	double cost, tcost = 0;
-	int i;
-	for (i=0;i<=10;)
+	int numOfParcels = 0;
+	for (int i=0;i<=9;i++)
 	{
-		cost = newParcel[numOfParcels++].getCost();
+		cost = newParcel[i].getCost();
 		tcost = tcost + cost;
 	}
 	return tcost;
@@ -131,12 +131,25 @@ public void getParcelsByDestination (char a) {
 	}
 }
 public void sortedBy(String sort) {
+	//String[] hasil = new parcel[newParcel.length];
+	if (sort.equals("weight"))
+	{
 		for (int i = 0; i < newParcel.length;)
 		{
 			if (newParcel[i].equals(sort))
 			{
-				System.out.print("\n" + newParcel[i]);
+				System.out.println(newParcel[i]);
+				//return "\n" + newParcel[i];
 			}
 		}
+		/*
+		
+		for (int i = 0;i<hasil.length;i++)
+		{
+			hasil[i] = newParcel[i];
+		}
+		return Arrays.sort(hasil);
+		*/
+	}
 	}
 }

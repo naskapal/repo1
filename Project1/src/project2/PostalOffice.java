@@ -16,5 +16,10 @@ public static void main(String[] args){
 	System.out.print("Your choice?");
 	System.out.print("");
 	input = sc1.nextInt();
+	switch (input)
+	{
+	case 1:
+		
+	}
 }
 }

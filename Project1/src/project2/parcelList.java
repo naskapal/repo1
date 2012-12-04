@@ -67,12 +67,33 @@ private double getMinCostParcel() {
 }
 private String getParcelByCost(double cost1, double cost2) {
 	String getWantedParcel;
-	boolean found= false;
+	boolean found1= false, found2 = false;
 	int i = 0;
-	while (!found && i < newParcel.length)
+	while (i < newParcel.length)
 	{
-		newParcel[i].equals(cost1);
-		newParcel[i].equals(cost2);
+		if (cost1 == newParcel[i].getCost())
+		{
+			found1 = true;
+		}
+		else
+		{
+			i++;
+		}
+	}
+	while (i < newParcel.length)
+	{
+		if (cost2 == newParcel[i].getCost())
+		{
+			found2 = true;
+		}
+		else
+		{
+			i++;
+		}
+	}
+	if (found1 == true && found2 == true)
+	{
+		
 	}
 }
 }

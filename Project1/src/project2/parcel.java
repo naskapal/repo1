@@ -5,22 +5,24 @@ public static final int length = 10;
 private static double weight, cost;
 private static char destination;
 
-public static void validator (double weight, char destination) {
+public static void validator (double a, char b) {
 	if (weight > 0)
 	{
-		weight = weight;
+		weight = a;
 	}
 	else
 	{
 		weight = 0;
+		System.out.print("\nYou must enter non - negative value");
 	}
 	if (destination == 'D' || destination == 'd' || destination == 'I' || destination == 'i')
 	{
-		destination = destination;
+		destination = b;
 	}
 	else
 	{
 		destination = ' ';
+		System.out.print("\nInvalid destination");
 	}
 }
 public parcel(){
@@ -110,6 +112,6 @@ public String toString () {
 	{
 		dest = "an international ";
 	}
-		return dest + weight + "kg parcel, with cost " + cost;
+		return "\n" +dest + weight + "kg parcel, with cost " + cost;
 }
 }

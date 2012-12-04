@@ -19,7 +19,14 @@ parcel.getCost();
 check = parcel.validateParcelWeight(parcel1.getParcelWeight(), parcel1.getDestination());
 if (check == true)
 {
+	if (weight < 0)
+	{
+		System.out.print("");
+	}
+	else
+	{
 System.out.println(parcel1.toString());
+	}
 }
 else
 {

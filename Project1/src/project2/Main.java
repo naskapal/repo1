@@ -1,4 +1,5 @@
 package project2;
+
 import java.util.*;
 public class Main {
 static Scanner sc1 = new Scanner(System.in);

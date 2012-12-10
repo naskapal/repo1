@@ -1,11 +1,12 @@
 package project2;
+
 import java.util.*;
 public class parcel {
-public static final int length = 10;
-private static double weight, cost;
-private static char destination;
+private double weight;
+public double cost;
+private char destination;
 
-public static void validator (double a, char b) {
+public void validator (double a, char b) {
 	if (weight > 0)
 	{
 		weight = a;
@@ -39,13 +40,13 @@ public double getParcelWeight () {
 public char getDestination () {
 	return destination;
 }
-public static void setWeight (double a) {
+public void setWeight (double a) {
 	weight = a;
 }
-public static void setDestination (char b) {
+public void setDestination (char b) {
 	destination = b;
 }
-public static double getCost () {
+public double getCost () {
 	if (destination == 'D' || destination == 'd')
 	{
 		cost = computeDomesticCost();
@@ -56,7 +57,7 @@ public static double getCost () {
 	}
 	return cost;
 }
-private static double computeDomesticCost () {
+private double computeDomesticCost () {
 	if (weight < 1 && weight > 0)
 	{
 		cost = 5.50;
@@ -71,7 +72,7 @@ private static double computeDomesticCost () {
 	}
 	return cost;
 }
-private static double computeInternationalCost() {
+private double computeInternationalCost() {
 	double grams;
 	grams = weight * 1000;
 	if (grams <= 250)
@@ -103,6 +104,15 @@ public static boolean validateParcelWeight (double weight, char destination) {
 	return check;
 }
 public String toString () {
-		return destination + weight + "kg parcel, with cost " + cost;
+	String dest = "";
+	if (destination == 'd' || destination == 'D')
+	{
+		dest = "a domestic";
+	}
+	else
+	{
+		dest = "an international";
+	}
+		return dest + " " + weight + " kg parcel, with cost " + getCost();
 }
 }

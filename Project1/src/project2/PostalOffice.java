@@ -2,8 +2,9 @@ package project2;
 import java.util.*;
 public class PostalOffice {
 private static Scanner sc1,sc2 = new Scanner(System.in);
-static int input;
 public static void main(String[] args){
+	Menus asd = new Menus();
+	int input;
 	System.out.print("\n1.\tAdd a parcel");
 	System.out.print("\n2.\tDisplay all parcel details");
 	System.out.print("\n3.\tDisplay the highest and lowest parcel");
@@ -19,7 +20,8 @@ public static void main(String[] args){
 	switch (input)
 	{
 	case 1:
-		
-	}
+		asd.menu1();
+	break;
+	} 
 }
 }

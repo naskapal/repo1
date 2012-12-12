@@ -1,5 +1,5 @@
 package project2;
-
+import java.util.Arrays;
 public class parcelList {
 	parcel[] newParcel;
 	private int numOfParcels;
@@ -35,26 +35,32 @@ public boolean addParcel (parcel x) {
 public int getNumOfParcels () {
 	return numOfParcels;
 }
-public String allParcels() {
-	String msg = "";
-	int numOfParcels = 0;
-	for(int i=1;i<=getNumOfParcels();i++)
+public String[] summaryParcels() {
+	String[] msg = new String [newParcel.length];
+	for (int i = 0;i<newParcel.length;i++)
 	{
-		msg += i + "." + newParcel[numOfParcels].toString();
+		if (newParcel[i] == null)
+		{
+			msg[i] = "\n" + i + ".";
+		}
+		else
+		{
+			msg[i] = "\n" + i + "." + newParcel[i].getCost();
+		}
 	}
 	return msg;
 }
-public String[] test() {
+public String[] allParcels() {
 	String[] parcels = new String [newParcel.length];
 	for (int i=0;i<newParcel.length;i++)
 	{
 		if (newParcel[i] == null)
 		{
-			parcels[i] = "null";
+			parcels[i] = "\n" + i + ".";
 		}
 		else
 		{
-			parcels[i] = i + "." + newParcel[i].toString();
+			parcels[i] ="\n" + i + "." + newParcel[i].toString();
 		}
 	}
 	return parcels;
@@ -85,7 +91,7 @@ public String getMaxCostParcel() {
 			{
 				maxCost = newParcel[i].getCost();
 			}	
-		}msg = "Found the max cost parcel at index " + i + " with price " + maxCost; // not 100% correct, need more think
+		}msg = "Found the max cost parcel " + "with price " + maxCost; // not 100% correct, need more think
 	}
 	return msg;
 }
@@ -100,7 +106,7 @@ public String getMinCostParcel() {
 		{
 			minCost = newParcel[i].getCost();
 		}
-		}msg = "Found the min cost parcel at index " + i + " with price " + minCost; //index numbering is still incorrect, like in maxcost, need more think
+		}msg = "Found the min cost parcel " + "with price " + minCost; //index numbering is still incorrect, like in maxcost, need more think
 	}
 	return msg;
 }
@@ -157,26 +163,24 @@ public void getParcelsByDestination (char a) {
 		System.out.print("\n");
 	}
 }
-public void sortedBy(String sort) {
-	//String[] hasil = new parcel[newParcel.length];
-	if (sort.equals("weight"))
+public String[] sortedBy(String sort) {
+	String[] hasil = new String [newParcel.length];
+	parcel[] copy = new parcel [newParcel.length];
+	int i = 0;
+	for (i = 0;i<newParcel.length;i++)
 	{
-		for (int i = 0; i < newParcel.length;)
+		copy[i] = newParcel[i];
+	}
+	if (sort.equalsIgnoreCase("weight"))
+	{
+		for (i = 0;i<newParcel.length;i++)
 		{
-			if (newParcel[i].equals(sort))
+			if (newParcel[i] != null)
 			{
-				System.out.println(newParcel[i]);
-				//return "\n" + newParcel[i];
+				
 			}
 		}
-		/*
-		
-		for (int i = 0;i<hasil.length;i++)
-		{
-			hasil[i] = newParcel[i];
-		}
-		return Arrays.sort(hasil);
-		*/
+	}
+	return hasil;
 	}
 	}
-}

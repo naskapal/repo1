@@ -22,11 +22,11 @@ public static void main (String [] args){
 	//System.out.println(asd.getNumOfParcels());
 	tcost = asd.totalCost();
 	//System.out.print("\n" + tcost);
-	//for (int i = 0;i<9;i++)
-	//{
-	//System.out.println(asd.test()[i]);
-	//}
-	//System.out.print("\n" + asd.getMaxCostParcel());
-	asd.getParcelByCost(1.0, 98.4);
+	for (int i = 0;i<9;i++)
+	{
+	System.out.println(asd.allParcels()[i]);
+	}
+	System.out.print("\n" + asd.getMaxCostParcel());
+	//asd.getParcelByCost(1.0, 98.4);
 }
 }

@@ -41,11 +41,11 @@ public String[] summaryParcels() {
 	{
 		if (newParcel[i] == null)
 		{
-			msg[i] = "\n" + i + ".";
+			msg[i] = "\n" + (i+1) + ".Empty";
 		}
 		else
 		{
-			msg[i] = "\n" + i + "." + newParcel[i].getCost();
+			msg[i] = "\n" + (i+1) + "." + newParcel[i].getCost();
 		}
 	}
 	return msg;
@@ -56,11 +56,11 @@ public String[] allParcels() {
 	{
 		if (newParcel[i] == null)
 		{
-			parcels[i] = "\n" + i + ".";
+			parcels[i] = "\n" + (i+1) + ".Empty";
 		}
 		else
 		{
-			parcels[i] ="\n" + i + "." + newParcel[i].toString();
+			parcels[i] ="\n" + (i+1) + "." + newParcel[i].toString();
 		}
 	}
 	return parcels;

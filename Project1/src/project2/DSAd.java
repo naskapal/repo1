@@ -8,7 +8,7 @@ static int numOfParcels;
 static double tcost;
 public static void main (String [] args){
 	parcel parcel0 = new parcel (2,'d');
-	parcel parcel1 = new parcel (3,'i');
+	parcel parcel1 = new parcel (1,'i');
 	parcel parcel2 = new parcel (1,'d');
 	parcel parcel3 = new parcel (3,'i');
 	parcelList asd = new parcelList();

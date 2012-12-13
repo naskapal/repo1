@@ -2,15 +2,19 @@ package project2;
 import java.util.*;
 public class Menus {
 	Scanner sc1 = new Scanner(System.in);
+	Scanner sc2 = new Scanner(System.in);
 	parcel parcel1 = new parcel();
 	parcelList newParcel = new parcelList();
 	public void menu1() {
 		boolean valid;
+		int weight;
+		char dest;
 		System.out.print("\nInput the parcel weight in kg :\t");
-		parcel1.setWeight(sc1.nextDouble());
+		weight = sc1.nextInt();
 		System.out.print("\nDomestic or International ?\t");
-		parcel1.setDestination(sc1.next().charAt(0));
-		valid = newParcel.addParcel(parcel1);
+		dest = sc1.next().charAt(0);
+		parcel parcelInput = new parcel(weight,dest);
+		valid = newParcel.addParcel(parcelInput);
 		if (valid == true)
 		{
 			System.out.print("\nAddition Success!");
@@ -21,13 +25,21 @@ public class Menus {
 		}
 		}
 	public void menu2() {
-		newParcel.allParcels();
+		for (int i = 0;i<=9;i++)
+		{
+		System.out.print(newParcel.allParcels()[i]);
+		}
 	}
 	public void menu3() {
-		newParcel.getMaxCostParcel();
-		newParcel.getMinCostParcel();
+		System.out.print("\n" + newParcel.getMaxCostParcel());
+		System.out.print("\n" + newParcel.getMinCostParcel());
 	}
 	public void menu4() {
-		newParcel.summaryParcels();
+
+		for (int i = 0;i<=9;i++)
+		{
+		System.out.print(newParcel.summaryParcels()[i]);
+		}
 	}
+	
 }

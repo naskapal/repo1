@@ -6,7 +6,7 @@ public class Menus {
 	parcel parcel1 = new parcel();
 	parcelList newParcel = new parcelList();
 	public void menu1() {
-		boolean valid;
+		boolean valid1, valid2;
 		int weight;
 		char dest;
 		System.out.print("\nInput the parcel weight in kg :\t");
@@ -14,14 +14,18 @@ public class Menus {
 		System.out.print("\nDomestic or International ?\t");
 		dest = sc1.next().charAt(0);
 		parcel parcelInput = new parcel(weight,dest);
-		valid = newParcel.addParcel(parcelInput);
-		if (valid == true)
+		valid1 = parcel1.validator(weight, dest);
+		if (valid1 == true)
+		{
+		valid2 = newParcel.addParcel(parcelInput);
+		if (valid2 == true)
 		{
 			System.out.print("\nAddition Success!");
 		}
 		else
 		{
 			System.out.print("\nAddition Failed");
+		}
 		}
 		}
 	public void menu2() {

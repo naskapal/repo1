@@ -173,6 +173,7 @@ public String[] sortedBy(String sort) {
 	}
 	if (sort.equalsIgnoreCase("weight"))
 	{
+		Arrays.sort(newParcel[i].getParcelWeight());//this one gives "- The method sort(int[]) in the type Arrays is not applicable for the arguments (double)"
 		for (i = 0;i<newParcel.length;i++)
 		{
 			if (newParcel[i] != null)

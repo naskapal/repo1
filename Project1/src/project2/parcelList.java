@@ -110,58 +110,37 @@ public String getMinCostParcel() {
 	}
 	return msg;
 }
-public void getParcelByCost(double cost1, double cost2) {
-	double minCost = cost1, maxCost = cost2;
-	boolean check = false;
-	int i = 0;
-	for (i = 0;i<newParcel.length;i++)
+public double[] getParcelByCost(double cost1, double cost2) {
+	double[] msg = new double[newParcel.length+2];
+	for (int i = 0;i<newParcel.length;i++)
 	{
 		if (newParcel[i] != null)
 		{
-			if (minCost == newParcel[i].getCost())
-			{
-				if (maxCost == newParcel[i].getCost())
-				{
-					check = true;
-				}
-			}
-		}
-		if (check == true)
+		if (newParcel[i].getCost() > cost1 && newParcel[i].getCost() < cost2)
 		{
-			for (i = 0;i<newParcel.length;i++)
-			{
-				if (newParcel[i] != null)
-				{
-					if (newParcel[i].getCost() >= minCost)
-					{
-						if (newParcel[i].getCost() <= maxCost)
-						{
-							System.out.print("\n" + newParcel[i].getCost());
-						}
-					}
-				}
-			}
+			msg[i] = newParcel[i].getCost();
+		}
 		}
 	}
+	return msg;
 }
-public void getParcelsByDestination (char a) {
-	boolean found = false;
-	for (int i=0; i < newParcel.length;)
+public String[] getParcelsByDestination (char a) {
+	String[] msg = new String [newParcel.length];
+	for (int i =0;i<newParcel.length;i++)
 	{
-		if (a == newParcel[i].getDestination())
+		if (newParcel[i] != null)
 		{
-			found = true;
-			System.out.print("\n" + newParcel[i]);
+		if (newParcel[i].getDestination() == a)
+		{
+			msg[i] = newParcel[i].toString();
 		}
 		else
 		{
-			i++;
+			msg[i] = "";
+		}
 		}
 	}
-	if (found == false)
-	{
-		System.out.print("\n");
-	}
+	return msg;
 }
 public String[] sortedBy(String sort) {
 	String[] hasil = new String [newParcel.length];

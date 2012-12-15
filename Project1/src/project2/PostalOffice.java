@@ -60,6 +60,26 @@ public static void main(String[] args){
 		}
 		while (enter == 0);
 	break;
+	case 5:
+		do
+		{
+			asd.menu5();
+			System.out.print("\n----------------------------------------------------");
+			System.out.print("\n\n0.\tBack\t");
+			enter = sc2.next().charAt(0);
+		}
+		while (enter == 0);
+		break;
+	case 6:
+		do
+		{
+			asd.menu6();
+			System.out.print("\n----------------------------------------------------");
+			System.out.print("\n\n0.\tBack\t");
+			enter = sc2.next().charAt(0);
+		}
+		while (enter == 0);
+		break;
 	default:
 		if(input != 0)
 		{

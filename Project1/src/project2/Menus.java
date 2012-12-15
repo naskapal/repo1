@@ -3,7 +3,7 @@ import java.util.*;
 public class Menus {
 	Scanner sc1 = new Scanner(System.in);
 	Scanner sc2 = new Scanner(System.in);
-	parcel parcel1 = new parcel();
+	parcel parcel1 = new parcel(1,'d');
 	parcelList newParcel = new parcelList();
 	public void menu1() {
 		boolean valid1, valid2;
@@ -45,5 +45,43 @@ public class Menus {
 		System.out.print(newParcel.summaryParcels()[i]);
 		}
 	}
-	
+	public void menu5() {
+		double[] msg = new double[10];
+		System.out.print("\nInput the lowest price :\t");
+		double cost1 = sc1.nextDouble();
+		System.out.print("\nInput the highest price :\t");
+		double cost2 = sc2.nextDouble();
+		msg = newParcel.getParcelByCost(cost1, cost2);
+		System.out.print("\n" + cost1);
+		for (int i = 0;i<10;i++)
+		{
+			if (msg[i] == 0.0)
+			{
+				System.out.print("");
+			}
+			else
+			{
+			System.out.print("\n" + msg[i]);
+			}
+		}
+		System.out.print("\n" + cost2);
+	}
+	public void menu6() {
+		char dest;
+		String[] msg = new String[10];
+		System.out.print("\nInput the desired destination :\t");
+		dest = sc1.next().charAt(0);
+		msg = newParcel.getParcelsByDestination(dest);
+		for (int i = 0;i<10;i++)
+		{
+			if (msg[0] == null)
+			{
+				System.out.print("\nNo desired destination found");
+			}
+			else
+			{
+				System.out.print("\n" + msg[i]);
+			}
+		}
+	}
 }

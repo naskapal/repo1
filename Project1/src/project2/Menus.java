@@ -6,17 +6,30 @@ public class Menus {
 	parcel parcel1 = new parcel(1,'d');
 	parcelList newParcel = new parcelList();
 	public void menu1() {
-		boolean valid1, valid2;
+		boolean valid2;
 		int weight;
 		char dest;
+		do
+		{
 		System.out.print("\nInput the parcel weight in kg :\t");
 		weight = sc1.nextInt();
-		System.out.print("\nDomestic or International ?\t");
-		dest = sc1.next().charAt(0);
-		parcel parcelInput = new parcel(weight,dest);
-		valid1 = parcel1.validator(weight, dest);
-		if (valid1 == true)
+		if (weight <= 0)
 		{
+			System.out.print("\nYou must enter non negative value");
+		}
+		}
+		while (weight <= 0);
+		do
+		{
+		System.out.print("\nDomestic or International ?\t");
+		dest = sc2.next().charAt(0);
+		if ((dest != 'd' || dest != 'D') && (dest != 'i' || dest != 'I'))
+		{
+			System.out.print("\nYou must enter 'd', 'D', 'i', or 'I' only ");
+		}
+		}
+		while ((dest != 'd' || dest != 'D') && (dest != 'i' || dest != 'I'));
+		parcel parcelInput = new parcel(weight,dest);
 		valid2 = newParcel.addParcel(parcelInput);
 		if (valid2 == true)
 		{
@@ -25,7 +38,6 @@ public class Menus {
 		else
 		{
 			System.out.print("\nAddition Failed");
-		}
 		}
 		}
 	public void menu2() {
@@ -72,16 +84,28 @@ public class Menus {
 		System.out.print("\nInput the desired destination :\t");
 		dest = sc1.next().charAt(0);
 		msg = newParcel.getParcelsByDestination(dest);
+		if (msg[0] == "")
+		{
+			System.out.print("\nCannot found desired destination");
+		}
+		else
+		{
 		for (int i = 0;i<10;i++)
 		{
-			if (msg[0] == null)
+			if (msg[i] == "")
 			{
-				System.out.print("\nNo desired destination found");
+				System.out.print("");
+			}
+			else if (msg[i] == null)
+			{
+				System.out.print("");
 			}
 			else
 			{
 				System.out.print("\n" + msg[i]);
 			}
 		}
+
+	}
 	}
 }

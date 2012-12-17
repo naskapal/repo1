@@ -6,32 +6,6 @@ private double weight;
 public double cost;
 private char destination;
 
-public boolean validator (double a, char b) {
-	boolean valid = false;
-	if (weight > 0)
-	{
-		weight = a;
-		valid = true;
-	}
-	else
-	{
-		weight = 0;
-		System.out.print("\nYou must enter non - negative value");
-		valid = false;
-	}
-	if (destination == 'D' || destination == 'd' || destination == 'I' || destination == 'i')
-	{
-		destination = b;
-		valid = true;
-	}
-	else
-	{
-		destination = ' ';
-		System.out.print("\nInvalid destination");
-		valid = false;
-	}
-	return valid;
-}
 public parcel(){
 	weight = 0;
 	destination = ' ';

@@ -80,6 +80,15 @@ public static void main(String[] args){
 		}
 		while (enter == 0);
 		break;
+	case 7:
+		do
+		{
+			asd.menu7();
+			System.out.print("\n----------------------------------------------------");
+			System.out.print("\n\n0.\tBack\t");
+			enter = sc2.next().charAt(0);
+		}
+		while (enter == 0);
 	default:
 		if(input != 0)
 		{

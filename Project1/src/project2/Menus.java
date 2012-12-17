@@ -3,7 +3,7 @@ import java.util.*;
 public class Menus {
 	Scanner sc1 = new Scanner(System.in);
 	Scanner sc2 = new Scanner(System.in);
-	parcel parcel1 = new parcel(1,'d');
+	parcel parcel1 = new parcel();
 	parcelList newParcel = new parcelList();
 	public void menu1() {
 		boolean valid2;
@@ -23,12 +23,13 @@ public class Menus {
 		{
 		System.out.print("\nDomestic or International ?\t");
 		dest = sc2.next().charAt(0);
-		if ((dest != 'd' || dest != 'D') && (dest != 'i' || dest != 'I'))
+		dest = Character.toLowerCase(dest);
+		if (dest != 'd' && dest != 'i')
 		{
 			System.out.print("\nYou must enter 'd', 'D', 'i', or 'I' only ");
 		}
 		}
-		while ((dest != 'd' || dest != 'D') && (dest != 'i' || dest != 'I'));
+		while (dest != 'd' && dest != 'i');
 		parcel parcelInput = new parcel(weight,dest);
 		valid2 = newParcel.addParcel(parcelInput);
 		if (valid2 == true)
@@ -107,5 +108,16 @@ public class Menus {
 		}
 
 	}
+	}
+	public void menu7() {
+		String input;
+		String[] asd = new String[10];
+		System.out.print("\nInput the desired sort type :\t");
+		input = sc1.nextLine();
+		//asd = newParcel.sortedBy("weight");
+		for (int i = 0;i<10;i++)
+		{
+			System.out.print("\n" + asd[i]);
+		}
 	}
 }

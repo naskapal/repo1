@@ -118,7 +118,7 @@ public double[] getParcelByCost(double cost1, double cost2) {
 		{
 		if (newParcel[i].getCost() > cost1 && newParcel[i].getCost() < cost2)
 		{
-			msg[i] = newParcel[i].getCost();
+			msg[i] = (i+1) + newParcel[i].getCost();
 		}
 		}
 	}
@@ -132,7 +132,7 @@ public String[] getParcelsByDestination (char a) {
 		{
 		if (newParcel[i].getDestination() == a)
 		{
-			msg[i] = newParcel[i].toString();
+			msg[i] = (i+1) + "." + newParcel[i].toString();
 		}
 		else
 		{
@@ -142,24 +142,20 @@ public String[] getParcelsByDestination (char a) {
 	}
 	return msg;
 }
-public String[] sortedBy(String sort) {
-	String[] hasil = new String [newParcel.length];
-	parcel[] copy = new parcel [newParcel.length];
-	int i = 0;
-	for (i = 0;i<newParcel.length;i++)
+public String[] sortedBy() {
+	String[] asd = new String[newParcel.length];
+	double[] dsa = new double[newParcel.length];
+	parcel[] copy = new parcel[newParcel.length];
+	copy = newParcel;
+	for (int i = 0;i<newParcel.length;i++)
 	{
-		copy[i] = newParcel[i];
+		dsa[i] = copy[i].getCost();
 	}
-	if (sort.equalsIgnoreCase("weight"))
+	Arrays.sort(dsa);
+	for (int i = 0;i<newParcel.length;i++)
 	{
-		for (i = 0;i<newParcel.length;i++)
-		{
-			if (newParcel[i] != null)
-			{
-				
-			}
-		}
+		//asd[i] = dsa[i] + ;
 	}
-	return hasil;
-	}
+	return asd;
+}
 	}
